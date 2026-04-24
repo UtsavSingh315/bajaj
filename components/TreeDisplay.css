@@ -1,0 +1,202 @@
+.hierarchies-section {
+  margin-top: 30px;
+  background: var(--bg-tertiary);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-info);
+}
+
+.hierarchies-section h3 {
+  margin-bottom: 20px;
+  color: var(--accent-info);
+  font-size: 1.3em;
+}
+
+.hierarchies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.hierarchy-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hierarchy-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-success) 0%, var(--accent-info) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hierarchy-card:hover {
+  border-color: var(--accent-info);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+  transform: translateY(-4px);
+}
+
+.hierarchy-card:hover::before {
+  opacity: 1;
+}
+
+.hierarchy-card.cycle {
+  border-color: var(--accent-warning);
+}
+
+.hierarchy-card.cycle:hover {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+}
+
+.hierarchy-card.cycle::before {
+  background: linear-gradient(90deg, var(--accent-warning) 0%, #d97706 100%);
+}
+
+.hierarchy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.root-label {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--accent-success);
+  font-family: "Monaco", "Courier New", monospace;
+}
+
+.cycle-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.depth-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.hierarchy-tree {
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.9em;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  line-height: 1.8;
+}
+
+.tree-container {
+  padding: 5px 0;
+}
+
+.tree-node {
+  padding: 4px 0;
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.node-label {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-right: 8px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.tree-node:hover .node-label {
+  background: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.node-children {
+  margin-top: 4px;
+  border-left: 2px dashed rgba(59, 130, 246, 0.3);
+  padding-left: 10px;
+}
+
+.tree-empty {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Scrollbar styling */
+.hierarchy-tree::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hierarchy-tree::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.hierarchy-tree::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 10px;
+}
+
+.hierarchy-tree::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+@media (max-width: 1200px) {
+  .hierarchies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hierarchies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hierarchy-card {
+    padding: 15px;
+  }
+
+  .hierarchy-tree {
+    font-size: 0.8em;
+    max-height: 300px;
+  }
+}

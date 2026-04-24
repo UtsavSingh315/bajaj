@@ -1,0 +1,25 @@
+{
+  "name": "bfhl-nextjs",
+  "version": "1.0.0",
+  "description": "SRM Full Stack Engineering Challenge - BFHL Processor (Next.js)",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
